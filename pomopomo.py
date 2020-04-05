@@ -50,7 +50,7 @@ while(True):
         # startpomodoronow(input("What is the title? Enter=Default\n"))
         startpomodoro_now()
         print(readfile())
-    if choice == "2":
+    elif choice == "2":
         #TODO TITLE (PRINT LIST OF CHOICES)
         #print(calculate_expiration(readfile(input("has a title? Enter=Default\n"))))
         print(calculate_expiration(readfile()))
