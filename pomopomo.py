@@ -1,16 +1,12 @@
 #THIS APP NEED ACCESS TO WRITE,READ,WATCH THE TIME
-#TODO IMPLEMENT "TITLE" COMPATIBILITY
+#TODO GPIO RASPBERRY PI ACCESS, BUTTONS AND AUTOMATION
 #TODO CRON IMPLEMENTATION / (AUTO TASKs)..
-#TODO WHATSAPP API / SOCIAL NETWORK NOTIFICATIONS
 ###################################################
 
 import time
 
-def remove_decimals(string_or_float_int):
-    return str(int(float(string_or_float_int)))
 
 #Reads the last register
-#TODO TITLES
 def readfile():
     lastrecord = ""
     with open("db","r") as f:
@@ -18,17 +14,14 @@ def readfile():
     return lastrecord
 
 #Write the database
-#TODO TITLES
 def startpomodoro_now():
     with open("db","w+") as f:
-        f.write(remove_decimals(time.time()))
+        f.write(time.time())
     
 
 def calculate_expiration(register):
     register = int(register)
-    timenow = time.time()
-    #Removes decimals for easy use
-    timenow = int(remove_decimals(time.time()))
+    timenow = int(time.time())
 
     is_expirated = lambda old: (old + (60*25) ) <= timenow
     if is_expirated(register):
@@ -46,13 +39,9 @@ while(True):
     (3) Exit\n""")
 
     if choice == "1":
-        #TODO TITLE
-        # startpomodoronow(input("What is the title? Enter=Default\n"))
         startpomodoro_now()
         print(readfile())
     elif choice == "2":
-        #TODO TITLE (PRINT LIST OF CHOICES)
-        #print(calculate_expiration(readfile(input("has a title? Enter=Default\n"))))
         print(calculate_expiration(readfile()))
     elif choice == "3":
         exit()
