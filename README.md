@@ -1,2 +1,0 @@
-# pomopomo
-my first project
