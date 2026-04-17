@@ -1,0 +1,22 @@
+@startuml Invoice Extraction Service
+!theme plain
+skinparam componentStyle rectangle
+
+actor "Finance Team" as user
+participant "FastAPI\n(App)" as api
+participant "SAT.ws\nAPI" as sat
+database "File\nStorage" as db
+
+user -> api: Trigger extraction\n(account + date range)
+api -> sat: POST /extract\n(CFDI request)
+sat --> api: 202 Accepted\n(task_id)
+
+... SAT.ws processes asynchronously ...
+
+sat -> api: POST /webhook\n(notification: invoices ready)
+api -> sat: GET /download\n(task_id)
+sat --> api: XML + PDF files
+api -> db: Store invoices
+api --> user: Extraction complete\n(results available)
+
+@enduml
