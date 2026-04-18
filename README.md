@@ -27,9 +27,6 @@ Automated CFDI invoice extraction from Mexico's SAT using FastAPI and webhook-ba
 - FastAPI with Swagger UI for API exploration
 - Scheduled extraction runs
 
-## Architecture
-
-See [diagram.puml](./diagram.puml) for system architecture.
 
 ## References
 
