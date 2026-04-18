@@ -1,5 +1,7 @@
 # Invoice Extraction Service
 
+![Architecture](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/yokharian/invoice-extraction-service/master/diagram.puml)
+
 Automated CFDI invoice extraction from Mexico's SAT using FastAPI and webhook-based async processing.
 
 ## Tech Stack

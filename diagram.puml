@@ -1,5 +1,5 @@
 @startuml Invoice Extraction Service
-!theme plain
+!theme sketchy-outline
 skinparam componentStyle rectangle
 
 actor "Finance Team" as user
